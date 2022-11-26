@@ -1,4 +1,6 @@
-package org.example;
+package org.example.swing;
+
+import org.example.model.Game;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,13 +16,6 @@ public class GamePanel extends JPanel {
         JTable table = new JTable(gameModel);
         table.setPreferredScrollableViewportSize(new Dimension(500, 70));
         table.setFillsViewportHeight(true);
-
-        game.addGameUpdateListener(new GameUpdateListener() {
-            @Override
-            public void gameUpdated(String message) {
-                JOptionPane.showMessageDialog(GamePanel.this, message);
-            }
-        });
 
         //Create the scroll pane and add the table to it.
         JScrollPane scrollPane = new JScrollPane(table);
@@ -38,7 +33,6 @@ public class GamePanel extends JPanel {
         });
         buttonPanel.add(changeBtn);
         add(buttonPanel, BorderLayout.SOUTH);
-
     }
 
 
