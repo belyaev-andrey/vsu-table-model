@@ -19,7 +19,6 @@ public class GamePanel extends JPanel {
             @Override
             public void gameUpdated(String message) {
                 JOptionPane.showMessageDialog(GamePanel.this, message);
-                gameModel.fireTableDataChanged();
             }
         });
 

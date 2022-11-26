@@ -20,7 +20,7 @@ public class Game {
                     "Pool"}
     };
 
-    private List<GameUpdateListener> listeners = new ArrayList<>();
+    private final List<GameUpdateListener> listeners = new ArrayList<>();
 
     public String[][] getFields() {
         return fields;

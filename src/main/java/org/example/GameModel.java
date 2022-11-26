@@ -2,12 +2,13 @@ package org.example;
 
 import javax.swing.table.AbstractTableModel;
 
-public class GameModel extends AbstractTableModel {
+public class GameModel extends AbstractTableModel implements GameUpdateListener {
 
     private final Game game;
 
     public GameModel(Game game) {
         this.game = game;
+        game.addGameUpdateListener(this);
     }
 
     private final String[] columnNames = {"First Name",
@@ -34,4 +35,8 @@ public class GameModel extends AbstractTableModel {
         return getValueAt(0, c).getClass();
     }
 
+    @Override
+    public void gameUpdated(String state) {
+        fireTableDataChanged();
+    }
 }
